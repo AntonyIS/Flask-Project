@@ -1,0 +1,92 @@
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: #ffffff;
+
+}
+.jumbotron{
+    margin-top: 50px;
+    padding-top:30px;
+    padding-bottom :10px;
+    border-radius: 15px;
+    height: 370px;
+    border:1px solid #adc8ff;
+    color: #ffffff;
+}
+.btn-submit{
+    background-color: #adc8ff;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px #333333;
+}
+.btn-submit:hover{
+    background-color: #95ff5d;
+    padding: 9px;
+    border-radius: 17px;
+    border: 1px #333333 solid;
+    color: red;
+    font-family: monospace;
+}
+ul{
+    list-style: none;
+
+}
+ul li{
+    float: left;
+    padding: 10px;
+
+}
+.image-section{
+    margin-left: 70px;
+}
+li img{
+    border-radius: 15px;
+
+
+}
+fieldset{
+    font-family: monospace;
+    heigh:430px;
+    background-color: #ffffff;
+}
+fieldset input{
+    border: 1px blue solid;
+    border-radius: 15px;
+    padding: 10px;
+    background: #ffffff;
+    width: 200px;
+}
+fieldset input:hover{
+    border: 1px green solid;
+    background: greenyellow;
+    border-radius: 15px;
+    padding: 10px;
+    width:300px
+}
+.card {
+    height: 600px;
+    border-radius: 15px;
+    width: 370px;
+    background:#333333;
+    color: #ffffff;
+}
+.card img{
+   height: 400px;
+   border-radius: 15px;
+}
+.card img:hover{
+    opacity: 0.4;
+    color: #ffffff;
+}
+.card-title {
+    padding-top: 20px;
+    font-family: monospace, sans-serif;
+}
+.card-body {
+    padding-top: 0;
+    font-family: monospace, sans-serif;
+}
+#btn-more{
+    margin-bottom: 0px;
+}

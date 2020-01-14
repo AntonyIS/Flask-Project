@@ -1,0 +1,4 @@
+sokoni.sqlite
+venv
+.idea
+*.pyc

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock title %}
+{% block content %}
+    <div class="container" id="main-section">
+        <h1 class="display-4">Upload Your Product</h1>
+
+            <hr style="background-color: #ffffff">
+            <form action="{{ url_for("index") }}" method="POST" enctype="multipart/form-data" >
+
+               <fieldset>
+                  <div class="form-group">
+                       <label for="">Name</label><br>
+                        <input type="text" name="name" placeholder="Enter product name">
+                  </div>
+                   <div class="form-group">
+                       <label for="">Description</label><br>
+                        <input type="text" name="description" placeholder="Enter product name">
+                  </div>
+                   <input type="file" name="imageUpload">
+                   <input type="submit"  value="Upload Product">
+
+               </fieldset>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+        <div class="image-section">
+           <div class="row">
+               {% if products %}
+                {% for product in products %}
+                  <div class="col col-md-4">
+
+                      <a href="/detail/{{ product.id }}">
+                          <div class="card">
+                              <img src="/{{ product.image }}" alt="">
+                              <div class="card-title card-check">
+                                  {{ product.name }}
+                              </div>
+                              <hr style="color: #ffffff">
+                              <div class="card-body card-check">
+                                  {{ product.description }}
+                          </div>
+                      </div>
+                      </a>
+
+                  </div>
+                    {% endfor %}
+               {% else%}
+                   <p class="lead">No products available</p>
+               {% endif %}
+           </div>
+        </div>
+    </div>
+{% endblock content %}
