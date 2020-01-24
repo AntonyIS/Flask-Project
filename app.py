@@ -1,5 +1,5 @@
-from flask import Flask, flash
-from flask import request, redirect,url_for, render_template
+from flask import (Flask,request, redirect,url_for, render_template,flash)
+
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired
 from werkzeug.utils import secure_filename
@@ -11,7 +11,7 @@ from flask_login import login_user, logout_user, login_required,LoginManager, Us
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'Top secret'
+app.config['SECRET_KEY'] = 'Top secret'#encripting data sent to server
 app.config["SQLALCHEMY_DATABASE_URI"]="sqlite:///sokoni.sqlite" #path to db
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+ "/File_Download_Upload/static/images"
 app.config["UPLOAD_FOLDER"]= BASE_DIR
@@ -51,6 +51,7 @@ def signup():
         user = User(username=username, first_name=first_name, last_name=last_name,email=email,password=password)
         db.session.add(user)
         db.session.commit()
+
         return redirect(url_for('login'))
     return render_template('signup.html', title="Signup")
 
@@ -89,6 +90,7 @@ def index():
         f = request.files['imageUpload']
         filename = secure_filename(f.filename)
 
+        # location for storing images: FlaskPro/static/images/name_of_image
         image = "{}/{}/{}".format("static","images",filename)
 
         # image upload
@@ -98,7 +100,6 @@ def index():
         db.session.commit()
         flash(u'Product uploaded successfully', 'alert alert-success')
         return redirect(url_for('index'))
-
     return render_template('home.html', products=products)
 
 
@@ -114,6 +115,7 @@ def detail(product_id):
 @login_required
 def logout():
     logout_user()
+    flash(u'Product uploaded successfully', 'alert alert-success')
     return redirect('/')
 
 if __name__ == '__main__':
